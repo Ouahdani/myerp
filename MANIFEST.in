@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include myerp *.css
+recursive-include myerp *.csv
+recursive-include myerp *.html
+recursive-include myerp *.ico
+recursive-include myerp *.js
+recursive-include myerp *.json
+recursive-include myerp *.md
+recursive-include myerp *.png
+recursive-include myerp *.py
+recursive-include myerp *.svg
+recursive-include myerp *.txt
+recursive-exclude myerp *.pyc

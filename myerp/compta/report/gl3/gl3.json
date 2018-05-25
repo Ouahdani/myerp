@@ -1,0 +1,28 @@
+{
+ "add_total_row": 0,
+ "creation": "2018-05-25 15:23:52.043718",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2018-05-25 15:23:55.310964",
+ "modified_by": "Administrator",
+ "module": "Compta",
+ "name": "GL3",
+ "owner": "Administrator",
+ "ref_doctype": "GL Entry",
+ "report_name": "GL3",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  }
+ ]
+}

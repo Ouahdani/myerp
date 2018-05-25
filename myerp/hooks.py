@@ -11,6 +11,13 @@ app_color = "grey"
 app_email = "krahmoune@groupefa.com"
 app_license = "MIT"
 
+fixtures = [
+      {
+        "dt": "Custom Field", 
+        "filters": [["name", "in", ["Salary Structure Employee-hs1"]]]
+      }
+]
+
 # Includes in <head>
 # ------------------
 

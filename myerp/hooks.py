@@ -11,12 +11,16 @@ app_color = "grey"
 app_email = "krahmoune@groupefa.com"
 app_license = "MIT"
 
-fixtures = [
-      {
-        "dt": "Custom Field", 
-        "filters": [["name", "in", ["Salary Structure Employee-hs1"]]]
-      }
-]
+doctype_js = {
+#	"Fiscal Year": ["erpnext_france/custom_scripts/fiscal_year.js"],
+#	"Payment Entry": ["erpnext_france/custom_scripts/payment_entry.js"],
+#	"Journal Entry": ["myerp/custom_scripts/journal_entry.js"],
+	"Naming Series": ["myerp/custom_scripts/series.js"]
+}
+
+#fixtures = [
+#      {"dt": "Custom Field", "filters": [["name", "in", ["Salary Structure Employee-hs1"]]]}
+#]
 
 # Includes in <head>
 # ------------------
@@ -120,10 +124,11 @@ fixtures = [
 
 # before_tests = "myerp.install.before_tests"
 
-# Overriding Whitelisted Methods
+# Overriding Whitelisted Methods                     
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "myerp.event.get_events"
-# }
+#override_whitelisted_methods = {
+#	"erpnext.naming_series.scrub_options_list": "myerp.fec.series.scrub_options_list"
+#	"frappe.desk.naming_series.scrub_options_list": "myerp.fec.series.scrub_options_list"
+
 

@@ -25,7 +25,7 @@ def on_update(self, arg=None):
 def update_defaults(name, group):
 	item_default = frappe.db.get_value("Item Default", {"parent": name}, "name")
 	inc_account = ""
-	frappe.db.set_value("Item Default", item_default , "income_account", inc_account)
+	frappe.db.set_value("Item Default", item_default , "income_account", inc_account)-
 
 
 

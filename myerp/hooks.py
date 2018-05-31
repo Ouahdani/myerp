@@ -11,11 +11,19 @@ app_color = "grey"
 app_email = "krahmoune@groupefa.com"
 app_license = "MIT"
 
+                                                                                              
+doc_events = {
+#	"Item": {
+#		"on_update": "myerp.nael.item.on_update"
+#	}
+}
+
 doctype_js = {
 #	"Fiscal Year": ["erpnext_france/custom_scripts/fiscal_year.js"],
 #	"Payment Entry": ["erpnext_france/custom_scripts/payment_entry.js"],
 #	"Journal Entry": ["myerp/custom_scripts/journal_entry.js"],
-	"Naming Series": ["myerp/custom_scripts/series.js"]
+	"Naming Series": ["myerp/custom_scripts/series.js"],
+#	"Item": ["myerp/custom_scripts/item.js"]
 }
 
 #fixtures = [
@@ -127,8 +135,10 @@ doctype_js = {
 # Overriding Whitelisted Methods                     
 # ------------------------------
 #
-#override_whitelisted_methods = {
-#	"erpnext.naming_series.scrub_options_list": "myerp.fec.series.scrub_options_list"
+
+override_whitelisted_methods = {
+	"erpnext.stock.get_item_details.get_item_details": "myerp.nael.get_item_details.get_item_details"
+	}
 #	"frappe.desk.naming_series.scrub_options_list": "myerp.fec.series.scrub_options_list"
 
 

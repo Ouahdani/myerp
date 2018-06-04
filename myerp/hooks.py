@@ -13,8 +13,8 @@ app_license = "MIT"
 
                                                                                               
 doc_events = {
-#	"Item": {
-#		"on_update": "myerp.nael.item.on_update"
+#	"Sales Invoice": {
+#		"validate": "myerp.nael.selling_controller.validate"
 #	}
 }
 
@@ -23,7 +23,7 @@ doctype_js = {
 #	"Payment Entry": ["erpnext_france/custom_scripts/payment_entry.js"],
 #	"Journal Entry": ["myerp/custom_scripts/journal_entry.js"],
 	"Naming Series": ["myerp/custom_scripts/series.js"],
-#	"Item": ["myerp/custom_scripts/item.js"]
+	"Sales Invoice": ["myerp/custom_scripts/selling_controller.js"]
 }
 
 #fixtures = [
@@ -138,6 +138,7 @@ doctype_js = {
 
 override_whitelisted_methods = {
 	"erpnext.stock.get_item_details.get_item_details": "myerp.nael.get_item_details.get_item_details"
+#	"erpnext.controllers.selling_controller.check_active_sales_items": "myerp.nael.selling_controller.check_active_sales_items"
 	}
 #	"frappe.desk.naming_series.scrub_options_list": "myerp.fec.series.scrub_options_list"
 

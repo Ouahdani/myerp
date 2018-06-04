@@ -298,17 +298,29 @@ def get_basic_details(args, item):
 	return out
 
 def get_default_income_account(args, item):	
-	income_account = frappe.db.get_value("Item Default", {"parent": item.name, "company": args.company}, "income_account")
+	cat_cpt = frappe.db.get_value("Customer", args.customer, "categorie_comptable")
+	ces_account = frappe.db.get_value("Item Group", item.item_group, "default_cession_account")
+	inc_account = frappe.db.get_value("Item Group", item.item_group, "default_income_account")
+	def_account = ces_account if (cat_cpt == "Cession") else inc_account
+	ces_account = frappe.db.get_value("Item Default", {"parent": item.name, "company": args.company}, "default_cession_account")
+	inc_account = frappe.db.get_value("Item Default", {"parent": item.name, "company": args.company}, "income_account")
+	income_account = ces_account if (cat_cpt == "Cession") else inc_account
 	return (income_account
 		or args.income_account
-		or frappe.db.get_value("Item Group", item.item_group, "default_income_account"))
+		or def_account)
 	
 
 def get_default_expense_account(args, item):
-	expense_account = frappe.db.get_value("Item Default", {"parent": item.name, "company": args.company}, "expense_account")
+	cat_cpt = frappe.db.get_value("Supplier", args.supplier, "categorie_comptable")
+	ces_account = frappe.db.get_value("Item Group", item.item_group, "default_transfert_account")
+	exp_account = frappe.db.get_value("Item Group", item.item_group, "default_expense_account")
+	def_account = ces_account if (cat_cpt == "Cession") else exp_account
+	ces_account = frappe.db.get_value("Item Default", {"parent": item.name, "company": args.company}, "default_transfert_account")
+	exp_account = frappe.db.get_value("Item Default", {"parent": item.name, "company": args.company}, "expense_account")
+	expense_account = ces_account if (cat_cpt == "Cession") else exp_account
 	return (expense_account
 		or args.expense_account
-		or frappe.db.get_value("Item Group", item.item_group, "default_expense_account"))
+		or def_account)
 
 def get_default_deferred_revenue_account(args, item):
 	if item.enable_deferred_revenue:
